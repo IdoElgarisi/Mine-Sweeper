@@ -1,0 +1,72 @@
+body {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    /* background-size: 100%; */
+    background-repeat: no-repeat;
+    background-position: center center;  
+    height: 45rem;
+}
+
+.radio-btn {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, cursive;
+    font-size: 20px;
+}
+
+.lives {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    font-size: 20px;
+}
+.lives span{
+    color:red;
+}
+
+table {
+    box-sizing: border-box;
+    margin: auto;
+    min-width: 200px;
+    min-height: 200px;
+    background-color: rgba(241, 229, 112, 0.884);
+}
+
+td {
+    box-sizing: border-box;
+    padding: 0.5px;
+    border-radius: 15%;
+    border-color:black;
+    width: 30px;
+    height: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.stopwatch {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.smiley{
+    display: inline-block;
+    margin-left: 50%;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.footer {
+    position:fixed;
+    bottom:0;
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.easy{color:rgb(238, 83, 238)}
+.hard {color: rgb(83, 166, 218);}
+.extreme{color: tomato;}

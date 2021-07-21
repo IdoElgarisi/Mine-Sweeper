@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <div class="lives">
+      
+        <p>Lives Left: <span></span> </p>
+    </div>
+    <div class="radio-btn">
+        <label class="easy"><b>Beginner(4)</b>
+            <input type="radio" name="radio" onclick="levelSelect(4,2,2)">
+        </label>
+        <label class="hard"><b>Medium(8)</b>
+            <input type="radio" name="radio" onclick="levelSelect(8,12,3)">
+        </label>
+        <label class="extreme"><b>Expert(12)</b>
+            <input type="radio" name="radio" onclick="levelSelect(12,30,3)">
+        </label>
+    </div>
+    <div class="smiley" onclick="init()"></div>
+    <div class="stopwatch">000</div>
+    <div class="field">
+        <table border="1" cellpadding="10">
+            <tbody class="board"></tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>coffeRights Ido Elgarisi</p>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
