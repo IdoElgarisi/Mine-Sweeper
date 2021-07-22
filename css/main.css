@@ -52,7 +52,7 @@ body {
     font-size: 20px;
 }
 
-td:hover {
+.board td:hover {
     transition: 700ms;
     background-color: rgb(83, 166, 218);
 }
