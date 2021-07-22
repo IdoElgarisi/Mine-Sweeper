@@ -194,6 +194,7 @@ function levelSelect(size, mines, lives = 2) {
     gGame.isOn = true;
     livesCounter = lives;
     printSafeClicksCount();
+    printScore();
     livesCount();
     stopTimer();
     document.querySelector('.smiley h2').innerHTML = NORMAL_SMILE;
