@@ -42,7 +42,6 @@ function countNeighbors(cellI, cellJ, mat) {
             if (mat[i][j].isMine) neighborsCount++;
         }
     }
-    // console.log(neighborsCount)
     return neighborsCount;
 }
 
@@ -52,10 +51,25 @@ function getCellCoord(strCellId) {
     return coord;
 }
 
+// get empty cells
+function getEmptyCells(board) {
+    var emptyCells = [];
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board[0].length; j++) {
+            if (board[i][j].isShown || board[i][j].isMarked) continue;
+            emptyCells.push({ i, j });
+        }
+    }
+    return emptyCells;
+}
+
+
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
-
+function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 var time1 = Date.now();
 var myTime;
 function startTimer() {
@@ -67,11 +81,13 @@ function timeCycle() {
     var time2 = Date.now();
     var msTimeDiff = time2 - time1;
     var timeDiffStr = new Date(msTimeDiff).toISOString().slice(17, -1);
-    document.querySelector('.stopwatch ').innerHTML = timeDiffStr;
+    document.querySelector('.stopwatch h2').innerHTML = timeDiffStr;
+    
 }
 
 function stopTimer() {
     clearInterval(myTime);
-    var finishTime = document.querySelector('.stopwatch').innerHTML;
+    var finishTime = document.querySelector('.stopwatch h2').innerHTML;
+    return finishTime;
     // alert('Done at: ' + finishTime);
 }

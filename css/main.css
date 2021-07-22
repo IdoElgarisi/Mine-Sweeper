@@ -3,8 +3,13 @@ body {
     background-size: cover;
     /* background-size: 100%; */
     background-repeat: no-repeat;
-    background-position: center center;  
-    height: 45rem;
+    background-position: center center;
+    height: 55rem;
+}
+
+.header {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .radio-btn {
@@ -16,26 +21,29 @@ body {
 .lives {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
     font-size: 20px;
 }
-.lives span{
-    color:red;
+
+.lives span {
+    color: red;
 }
 
-table {
+.field table {
     box-sizing: border-box;
     margin: auto;
-    min-width: 200px;
-    min-height: 200px;
+    max-width: 500px;
+    max-height: 500px;
+    min-width: 300px;
+    min-height: 300px;
     background-color: rgba(241, 229, 112, 0.884);
 }
 
-td {
+.board td {
+    transition: 200ms;
     box-sizing: border-box;
     padding: 0.5px;
     border-radius: 15%;
-    border-color:black;
+    border-color: black;
     width: 30px;
     height: 30px;
     max-height: 30px;
@@ -44,29 +52,52 @@ td {
     font-size: 20px;
 }
 
+td:hover {
+    transition: 700ms;
+    background-color: rgb(83, 166, 218);
+}
+
+.data {
+    text-align: center;
+    margin-top: -100px;
+}
+
 .stopwatch {
     display: inline-block;
-    text-align: center;
-    margin-bottom: 10px;
-    margin-top: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.smiley{
+.smiley {
     display: inline-block;
-    margin-left: 50%;
+    box-sizing: border-box;
+    padding-top: 25px;
+    margin-left: 30px;
     margin-right: 40px;
-    margin-bottom: 50px;
     cursor: pointer;
 }
 
 .footer {
-    position:fixed;
-    bottom:0;
+    position: fixed;
+    bottom: 0;
     margin-left: 20px;
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.easy{color:rgb(238, 83, 238)}
-.hard {color: rgb(83, 166, 218);}
-.extreme{color: tomato;}
+
+.easy {
+    color: rgb(238, 83, 238);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.hard {
+    color: rgb(83, 166, 218);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.extreme {
+    color: tomato;
+    font-size: 25px;
+    cursor: pointer;
+}

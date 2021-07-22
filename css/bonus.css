@@ -1,0 +1,44 @@
+.score {
+    display: inline-block;
+    /* margin-left: 35%; */
+}
+
+.scoretable {
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.scoretable thead {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+}
+
+.scoretable td {
+    /* background-color: red; */
+    box-sizing: border-box;
+    text-align: center;
+    width: 200px;
+    /* padding-top: 10px; */
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.safe-btn {
+    left: auto;
+    margin-left: 25px;
+}
+
+button {
+    margin-top: 10px;
+    border-radius: 15%;
+    padding: 10px;
+    background-color: rgb(119, 189, 233);
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, cursive;
+}
+
+.safe-btn h3 {
+    margin-top: 7px;
+    padding-bottom: 0px;
+}
