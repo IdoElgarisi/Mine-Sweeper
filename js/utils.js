@@ -53,10 +53,12 @@ function getCellCoord(strCellId) {
 
 // get empty cells
 function getEmptyCells(board) {
+    
     var emptyCells = [];
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board[0].length; j++) {
-            if (board[i][j].isShown || board[i][j].isMarked) continue;
+            if (board[i][j].isShown || board[i][j].isMarked ) continue;
+            if (board[i][j].isMine ) continue;
             emptyCells.push({ i, j });
         }
     }
@@ -82,7 +84,7 @@ function timeCycle() {
     var msTimeDiff = time2 - time1;
     var timeDiffStr = new Date(msTimeDiff).toISOString().slice(17, -1);
     document.querySelector('.stopwatch h2').innerHTML = timeDiffStr;
-    
+
 }
 
 function stopTimer() {

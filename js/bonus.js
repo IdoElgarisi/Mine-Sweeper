@@ -1,35 +1,51 @@
 'use strict'
-var beginnerBestScore = 0;
-var mediumBestScore = 0;
-var expertBestScore = 0;
+var beginnerBestScore = localStorage.getItem("beg score");
+var beginnerBestTime = localStorage.getItem("4timer");
+var mediumBestScore = localStorage.getItem("med score");
+var mediumBestTime = localStorage.getItem("8timer");
+var expertBestScore = localStorage.getItem("exp score");
+var expertBestTime = localStorage.getItem("12timer");
 var safeBtnClickCount;
 
 function printScore() {
     gGame.currScore = gGame.shownCount;
     document.querySelector('.score span').innerHTML = gGame.currScore;
     // Beginner
-    document.querySelector('.beginnerScore').innerHTML = localStorage.getItem("beg score");
-    document.querySelector('.beginnerTime').innerHTML = localStorage.getItem("4timer");
+    document.querySelector('.beginnerScore').innerHTML = beginnerBestScore
+    document.querySelector('.beginnerTime').innerHTML = beginnerBestTime;
     // Medium
-    document.querySelector('.mediumScore').innerHTML = localStorage.getItem("med score");
-    document.querySelector('.mediumTime').innerHTML = localStorage.getItem("8timer");
+    document.querySelector('.mediumScore').innerHTML = mediumBestScore;
+    document.querySelector('.mediumTime').innerHTML = mediumBestTime;
     // Expert
-    document.querySelector('.expertScore').innerHTML = localStorage.getItem("exp score");
-    document.querySelector('.expertTime').innerHTML = localStorage.getItem("12timer");
+    document.querySelector('.expertScore').innerHTML = expertBestScore;
+    document.querySelector('.expertTime').innerHTML = expertBestTime;
 }
 
 function bestScore(score, level) {
     if (level === 4) {
-        beginnerBestScore = (score > beginnerBestScore) ? score : beginnerBestScore;
-        localStorage.setItem("beg score", beginnerBestScore);
+        if (score > beginnerBestScore) {
+            beginnerBestScore = score;
+            beginnerBestTime=document.querySelector('.stopwatch h2').innerHTML;
+            localStorage.setItem("4timer", beginnerBestTime);
+            localStorage.setItem("beg score", beginnerBestScore);
+        }
+        
     }
     if (level === 8) {
-        mediumBestScore = (score > mediumBestScore) ? score : mediumBestScore;
-        localStorage.setItem("med score", mediumBestScore);
+        if (score > mediumBestScore) {
+            mediumBestScore = score;
+            mediumBestTime=document.querySelector('.stopwatch h2').innerHTML;
+            localStorage.setItem("med score", mediumBestScore);
+            localStorage.setItem("8timer", mediumBestTime);
+        }
     }
     if (level === 12) {
-        expertBestScore = (score > expertBestScore) ? score : expertBestScore;
-        localStorage.setItem("exp score", expertBestScore);
+        if (score > expertBestScore) {
+            expertBestScore = score;
+            expertBestTime=document.querySelector('.stopwatch h2').innerHTML;
+            localStorage.setItem("exp score", expertBestScore);
+            localStorage.setItem("12timer", expertBestTime);
+        }
     }
 }
 

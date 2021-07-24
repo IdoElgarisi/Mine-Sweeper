@@ -26,26 +26,27 @@ var firstClickI;
 var firstClickJ;
 
 function init() {
-    clicksCount = 0;
+    gGame.isOn = true;
+    bestScore(gGame.currScore, gLevel.size);
+    printScore();
+    gGame.currScore = 0;
+    gGame.shownCount = 0;
+    gGame.markedCount = 0;
     stopTimer()
     gBoard = buildBoard(gLevel.size, gLevel.size);
     printMat(gBoard);
+    clicksCount = 0;
     livesCounter = gLevel.lives;
-    livesCount();
-    printScore();
-    gGame.shownCount = 0;
-    gGame.minesCount = 0;
-    gGame.markedCount = 0;
-    gGame.currScore = 0;
-    gCellCount = gLevel.size * gLevel.size;
     safeBtnClickCount = 3;
     printSafeClicksCount();
-    gGame.isOn = true;
+    livesCount();
+    gCellCount = gLevel.size * gLevel.size;
     document.querySelector('.smiley h2').innerHTML = NORMAL_SMILE;
 }
 
 function cellClicked(elCell) {
     if (gGame.isOn) {
+
         var cellCoord = getCellCoord(elCell.className);
         var currCell = gBoard[cellCoord.i][cellCoord.j];
         if (currCell.isShown) return;
@@ -85,10 +86,11 @@ function cellClicked(elCell) {
             elCell.innerText = currCell.minesAroundCount;
         }
         if (currCell.minesAroundCount === 0 && !currCell.isMine) {
+            elCell.style.backgroundColor = 'lightblue';
+            elCell.innerText = currCell.minesAroundCount;
             expandShown(gBoard, cellCoord.i, cellCoord.j);
             currCell.isShown = true;
         }
-
         printScore()
         checkIfWin()
     }
@@ -104,6 +106,7 @@ function setMines(board = gBoard) {
             i--;
             randI = getRandomInteger(0, gLevel.size);
             randJ = getRandomInteger(0, gLevel.size);
+            board[randI][randJ].isMine = true;
         } else {
             board[randI][randJ].isMine = true;
         }
@@ -182,31 +185,26 @@ function levelSelect(size, mines, lives = 2) {
     gLevel.size = size;
     gLevel.mines = mines;
     gLevel.lives = lives;
-    gBoard = buildBoard(gLevel.size, gLevel.size);
-    gCellCount = (gLevel.size * gLevel.size);
-    printMat(gBoard);
-    clicksCount = 0;
     gGame.shownCount = 0;
     gGame.minesCount = 0;
     gGame.markedCount = 0;
     gGame.currScore = 0;
-    safeBtnClickCount = 3;
-    gGame.isOn = true;
     livesCounter = lives;
+    init();
     printSafeClicksCount();
-    printScore();
     livesCount();
-    stopTimer();
     document.querySelector('.smiley h2').innerHTML = NORMAL_SMILE;
 }
 
 function expandShown(mat, cellI, cellJ) {
     var elCell;
     var currCell;
+    var coords;
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         if (i < 0 || i >= mat.length) continue;
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
             if (j < 0 || j >= mat[i].length) continue;
+            // if (i === cellI && j === cellJ) continue;
             currCell = mat[i][j];
             if (!currCell.isShown) {
                 currCell.isShown = true;
@@ -215,6 +213,7 @@ function expandShown(mat, cellI, cellJ) {
             elCell = document.querySelector(`.cell-${i}-${j}`)
             elCell.style.backgroundColor = 'lightblue';
             elCell.innerText = currCell.minesAroundCount;
+            coords = getCellCoord(elCell.classList[1]);
         }
     }
 }
