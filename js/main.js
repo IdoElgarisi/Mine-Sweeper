@@ -206,6 +206,7 @@ function expandShown(mat, cellI, cellJ) {
             if (j < 0 || j >= mat[i].length) continue;
             // if (i === cellI && j === cellJ) continue;
             currCell = mat[i][j];
+            if (currCell.isShown) continue;
             if (!currCell.isShown) {
                 currCell.isShown = true;
                 gGame.shownCount++;
@@ -214,7 +215,11 @@ function expandShown(mat, cellI, cellJ) {
             elCell.style.backgroundColor = 'lightblue';
             elCell.innerText = currCell.minesAroundCount;
             coords = getCellCoord(elCell.classList[1]);
+            if (currCell.minesAroundCount === 0) {
+                expandShown(gBoard, coords.i, coords.j);
+            }
         }
+
     }
 }
 

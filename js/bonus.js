@@ -55,6 +55,7 @@ function printSafeClicksCount() {
 }
 
 function safeClick() {
+    if(!gGame.isOn)return;
     if (safeBtnClickCount > 0) {
         var emptyCell = getEmptyCell();
         var currCell = gBoard[emptyCell.i][emptyCell.j];
